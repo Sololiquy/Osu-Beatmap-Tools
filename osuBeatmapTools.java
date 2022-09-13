@@ -10,6 +10,8 @@ public class osuBeatmapTools {
     String previousSample = "0";
     String previousType = "1";
     String previousInheret = "1";
+    String beforeT = "";
+    String currentT = "";
 
     public osuBeatmapTools() {
         try {
@@ -83,20 +85,24 @@ public class osuBeatmapTools {
                         intOffset = (int) Offset;
                         lineTimingPoint[0] = Integer.toString(intOffset);
 
+                        if (lineTimingPoint[6].equals("1")) {
+                            previousVolume = lineTimingPoint[5];
+                            previousSample = lineTimingPoint[4];
+                            previousType = lineTimingPoint[3];
+                        }
                         if (lineTimingPoint[6].equals("0")) {
-                            if (lineTimingPoint[5].equals("100")) {
+                            if (lineTimingPoint[3].equals("1") &&
+                                    lineTimingPoint[4].equals("0") &&
+                                    lineTimingPoint[5].equals("100")) {
                                 lineTimingPoint[5] = previousVolume;
-                            }
-                            if (lineTimingPoint[4].equals("0")) {
                                 lineTimingPoint[4] = previousSample;
-                            }
-                            if (lineTimingPoint[3].equals("1")) {
                                 lineTimingPoint[3] = previousType;
                             }
                             previousVolume = lineTimingPoint[5];
                             previousSample = lineTimingPoint[4];
                             previousType = lineTimingPoint[3];
                         }
+
                         String temp = "";
                         for (int j = 0; j < 8; j++) {
                             temp = temp + lineTimingPoint[j];
@@ -104,6 +110,27 @@ public class osuBeatmapTools {
                                 temp = temp + ",";
                             }
                         }
+
+                        // REDUNDANT CHECK
+
+                        String[] beforeTD = beforeT.split(",");
+                        String[] currentTD = temp.split(",");
+                        int a = Integer.parseInt(beforeTD[0]);
+                        int b = Integer.parseInt(currentTD[0]);
+                        if (a != b && a + 1 != b &&
+                                !lineTimingPoint[1].equals(lineTimingPoint2[1]) ||
+                                !lineTimingPoint[2].equals(lineTimingPoint2[2]) ||
+                                !lineTimingPoint[3].equals(lineTimingPoint2[3]) ||
+                                !lineTimingPoint[4].equals(lineTimingPoint2[4]) ||
+                                !lineTimingPoint[5].equals(lineTimingPoint2[5]) ||
+                                !lineTimingPoint[6].equals(lineTimingPoint2[6]) ||
+                                !lineTimingPoint[7].equals(lineTimingPoint2[7])) {
+                            System.out.print(i + " added ");
+                            TimingPoint2[i] = TimingPoint[j];
+                            i++;
+                        }
+
+                        beforeT = temp;
                         st = temp;
                     }
 
