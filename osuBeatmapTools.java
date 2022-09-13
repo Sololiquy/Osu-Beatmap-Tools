@@ -12,6 +12,9 @@ public class osuBeatmapTools {
     String previousInheret = "1";
     String beforeT = "";
     String currentT = "";
+    int i = 1;
+    int a, b;
+    int countcheck = 0;
 
     public osuBeatmapTools() {
         try {
@@ -113,30 +116,41 @@ public class osuBeatmapTools {
 
                         // REDUNDANT CHECK
 
-                        String[] beforeTD = beforeT.split(",");
-                        String[] currentTD = temp.split(",");
-                        int a = Integer.parseInt(beforeTD[0]);
-                        int b = Integer.parseInt(currentTD[0]);
-                        if (a != b && a + 1 != b &&
-                                !lineTimingPoint[1].equals(lineTimingPoint2[1]) ||
-                                !lineTimingPoint[2].equals(lineTimingPoint2[2]) ||
-                                !lineTimingPoint[3].equals(lineTimingPoint2[3]) ||
-                                !lineTimingPoint[4].equals(lineTimingPoint2[4]) ||
-                                !lineTimingPoint[5].equals(lineTimingPoint2[5]) ||
-                                !lineTimingPoint[6].equals(lineTimingPoint2[6]) ||
-                                !lineTimingPoint[7].equals(lineTimingPoint2[7])) {
-                            System.out.print(i + " added ");
-                            TimingPoint2[i] = TimingPoint[j];
-                            i++;
-                        }
+                        if (beforeT.isEmpty() == false) {
+                            String[] beforeTD = beforeT.split(",");
+                            a = Integer.parseInt(beforeTD[0]);
 
-                        beforeT = temp;
-                        st = temp;
+                            String[] currentTD = temp.split(",");
+                            b = Integer.parseInt(currentTD[0]);
+                            if (beforeTD[1].equals(currentTD[1]) &&
+                                    beforeTD[2].equals(currentTD[2]) &&
+                                    beforeTD[3].equals(currentTD[3]) &&
+                                    beforeTD[4].equals(currentTD[4]) &&
+                                    beforeTD[5].equals(currentTD[5]) &&
+                                    beforeTD[6].equals(currentTD[6]) &&
+                                    beforeTD[7].equals(currentTD[7]) && a == b || a + 1 == b) {
+                                st = temp;
+                                beforeT = temp;
+                                System.out.print(countcheck + " ");
+                                countcheck++;
+                            } else {
+
+                                st = temp;
+                                beforeT = temp;
+                                write2[5].write(st);
+                                write2[5].newLine();
+                                write2[5].flush();
+                            }
+                        } else {
+
+                            beforeT = st;
+                            write2[5].write(st);
+                            write2[5].newLine();
+                            write2[5].flush();
+                        }
+                        i++;
                     }
 
-                    write2[5].write(st);
-                    write2[5].newLine();
-                    write2[5].flush();
                 }
                 if (Area.equals("Colours")) {
                     write2[6].write(st);
@@ -207,6 +221,9 @@ public class osuBeatmapTools {
                     write4.write(st);
                     write4.newLine();
                 }
+                if (j == 5) {
+                    write4.newLine();
+                }
             }
             write4.flush();
             write3.close();
@@ -214,7 +231,7 @@ public class osuBeatmapTools {
         } catch (Exception e) {
             System.out.println("ERROR");
         }
-
+        System.out.println(countcheck);
     }
 
     public static void main(String[] args) {
