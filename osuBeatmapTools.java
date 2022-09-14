@@ -57,28 +57,29 @@ public class osuBeatmapTools {
             while ((st = read.readLine()) != null) {
                 if (Area.equals("General")) {
                     write2[0].write(st);
-                    write2[0].newLine();
                     write2[0].flush();
+                    write2[0].newLine();
                 }
                 if (Area.equals("Editor")) {
                     write2[1].write(st);
-                    write2[1].newLine();
                     write2[1].flush();
+                    write2[1].newLine();
                 }
                 if (Area.equals("Metadata")) {
                     write2[2].write(st);
-                    write2[2].newLine();
                     write2[2].flush();
+                    write2[2].newLine();
                 }
                 if (Area.equals("Difficulty")) {
                     write2[3].write(st);
-                    write2[3].newLine();
                     write2[3].flush();
+                    write2[3].newLine();
+
                 }
                 if (Area.equals("Events")) {
                     write2[4].write(st);
-                    write2[4].newLine();
                     write2[4].flush();
+                    write2[4].newLine();
                 }
                 if (Area.equals("TimingPoints")) {
                     if (st.isEmpty() == false) {
@@ -133,6 +134,7 @@ public class osuBeatmapTools {
                                 beforeT = temp;
                                 System.out.print(countcheck + " ");
                                 countcheck++;
+
                             } else {
 
                                 st = temp;
@@ -148,19 +150,19 @@ public class osuBeatmapTools {
                             write2[5].newLine();
                             write2[5].flush();
                         }
+
                         i++;
                     }
-
                 }
                 if (Area.equals("Colours")) {
                     write2[6].write(st);
-                    write2[6].newLine();
                     write2[6].flush();
+                    write2[6].newLine();
                 }
                 if (Area.equals("HitObjects")) {
                     write2[7].write(st);
-                    write2[7].newLine();
                     write2[7].flush();
+                    write2[7].newLine();
                 }
 
                 if (st.equals("[General]")) {
@@ -198,43 +200,10 @@ public class osuBeatmapTools {
                 if (st.isEmpty() == true) {
                     Area = "a";
                 }
-
             }
-
-            // STEP 2 : OUTPUT
-
-            File output = new File("after.txt");
-            FileWriter write3 = new FileWriter(output, true);
-            BufferedWriter write4 = new BufferedWriter(write3);
-
-            PrintWriter delete2 = new PrintWriter(output);
-            delete2.close();
-
-            BufferedReader[] read2 = new BufferedReader[8];
-            write4.write("osu file format v14");
-            write4.newLine();
-            write4.write("");
-            write4.newLine();
-            for (int j = 0; j <= 7; j++) {
-                read2[j] = new BufferedReader(new FileReader(beatmap[j]));
-                while ((st = read2[j].readLine()) != null) {
-                    write4.write(st);
-                    write4.newLine();
-                }
-                if (j == 5) {
-                    write4.newLine();
-                }
-            }
-            write4.flush();
-            write3.close();
-            write4.close();
         } catch (Exception e) {
             System.out.println("ERROR");
         }
         System.out.println(countcheck);
-    }
-
-    public static void main(String[] args) {
-        osuBeatmapTools x = new osuBeatmapTools();
     }
 }
