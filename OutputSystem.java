@@ -16,7 +16,7 @@ public class OutputSystem {
             beatmap[6] = new File("Sub/Colours.txt");
             beatmap[7] = new File("Sub/HitObjects.txt");
 
-            File output = new File("after.txt");
+            File output = new File("after.osu");
             FileWriter write3 = new FileWriter(output, true);
             BufferedWriter write4 = new BufferedWriter(write3);
 

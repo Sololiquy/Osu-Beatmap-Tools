@@ -30,7 +30,7 @@ public class osuBeatmapTools {
             // Colours = 6
             // HitObjects = 7
             File[] beatmap = new File[8];
-            File input = new File("before.txt");
+            File input = new File("before.osu");
             beatmap[0] = new File("Sub/General.txt");
             beatmap[1] = new File("Sub/Editor.txt");
             beatmap[2] = new File("Sub/Metadata.txt");
@@ -129,7 +129,7 @@ public class osuBeatmapTools {
                                     beforeTD[4].equals(currentTD[4]) &&
                                     beforeTD[5].equals(currentTD[5]) &&
                                     beforeTD[6].equals(currentTD[6]) &&
-                                    beforeTD[7].equals(currentTD[7]) && a == b || a + 1 == b) {
+                                    beforeTD[7].equals(currentTD[7]) || a == b || a + 1 == b) {
                                 st = temp;
                                 beforeT = temp;
                                 System.out.print(countcheck + " ");
