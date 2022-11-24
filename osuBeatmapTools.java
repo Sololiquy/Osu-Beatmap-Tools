@@ -1,22 +1,8 @@
 import java.lang.Math;
 import java.io.*;
 
-public class osuBeatmapTools {
-    double Offset;
-    int intOffset;
-    String Area = "";
-    String pt = "";
-    String previousVolume = "100";
-    String previousSample = "0";
-    String previousType = "1";
-    String previousInheret = "1";
-    String beforeT = "";
-    String currentT = "";
-    int i = 1;
-    int a, b;
-    int countcheck = 0;
-
-    public osuBeatmapTools() {
+public class osuBeatmapTools extends osu {
+    public void run() {
         try {
             // Step 1 : File Connection
 

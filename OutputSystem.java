@@ -1,9 +1,7 @@
 import java.lang.Math;
 import java.io.*;
 
-public class OutputSystem {
-    String st;
-
+public class OutputSystem extends osu {
     public OutputSystem() {
         try {
             File[] beatmap = new File[8];
