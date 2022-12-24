@@ -1,0 +1,2 @@
+DistanceSpacing: 0.8
+BeatDivisor: 4
