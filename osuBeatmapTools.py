@@ -13,7 +13,7 @@ currentT = ""
 st = ""
 
 File = ['','','','','','','','','']
-File[0] = 'after.osu'
+File[0] = 'afterpy.osu'
 File[1] = 'Sub/General.txt'
 File[2] = 'Sub/Editor.txt'
 File[3] = 'Sub/Metadata.txt'
@@ -43,13 +43,13 @@ with open('before.osu', 'r') as infile:
 
         if '[' in line:
             area = areas[line]
-            print(area)
+            # print(area)
         elif line == '':
             x = 0
         else:
             if area == 'Default':
                 with open(File[0], 'a') as inFile:
-                    inFile.write(str(line)+'\n\n')
+                    inFile.write('osu file format v14 \n\n')
             elif area == 'General':
                 with open(File[1], 'a') as inFile:
                     inFile.write(str(line)+'\n')
@@ -82,7 +82,6 @@ with open('before.osu', 'r') as infile:
                             lineTimingPoint[3] = previousType
 
                     newLine = ','.join(map(str, lineTimingPoint))
-
                     if beforeT == '':
                         with open(File[6], 'a') as inFile:
                             inFile.write(str(newLine)+'\n')
@@ -90,7 +89,9 @@ with open('before.osu', 'r') as infile:
                     elif beforeT != '':
                         beforeTD = beforeT.split(',')
                         currentTD = newLine.split(',')
-                        if beforeTD[1] == currentTD[1] and beforeTD[2] == currentTD[2] and beforeTD[3] == currentTD[3] and beforeTD[4] == currentTD[4] and beforeTD[5] == currentTD[5] and beforeTD[6] == currentTD[6] and beforeTD[7] == currentTD[7]:
+                        a = int(currentTD[0])
+                        b = int(beforeTD[0])
+                        if (beforeTD[1] == currentTD[1] and beforeTD[2] == currentTD[2] and beforeTD[3] == currentTD[3] and beforeTD[4] == currentTD[4] and beforeTD[5] == currentTD[5] and beforeTD[6] == currentTD[6] and beforeTD[7] == currentTD[7] ):
                             beforeT = newLine
                             Redundant = Redundant + 1
                         else:
