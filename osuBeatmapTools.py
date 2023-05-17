@@ -26,7 +26,7 @@ File[8] = 'Sub/HitObjects.txt'
 for x in range(9):
   open(File[x], 'w').close()
 
-with open('before.osu', 'r', errors='ignore') as infile:
+with open('before.osu', 'r', encoding='utf8') as infile:
     for line in infile:
         line = line.strip()
 
@@ -57,7 +57,7 @@ with open('before.osu', 'r', errors='ignore') as infile:
                 with open(File[2], 'a') as inFile:
                     inFile.write(str(line)+'\n')
             elif area == 'Metadata':
-                with open(File[3], 'a') as inFile:
+                with open(File[3], 'a', encoding='utf8') as inFile:
                     inFile.write(str(line)+'\n')
             elif area == 'Difficulty':
                 with open(File[4], 'a') as inFile:
@@ -128,12 +128,12 @@ for y in range(1,9):
     with open(File[0], 'a') as inFile:
         inFile.write(strings[y])
 
-    with open(File[y], 'r') as infile:
+    with open(File[y], 'r', encoding='utf8') as infile:
         for line in infile:
             line = line.strip()
             newLine = line
 
-            with open(File[0], 'a') as inFile:
+            with open(File[0], 'a', encoding='utf8') as inFile:
                 inFile.write(str(newLine)+'\n')
     with open(File[0], 'a') as inFile:
                 inFile.write('\n')
