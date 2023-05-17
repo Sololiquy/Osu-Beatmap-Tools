@@ -1,2 +1,6 @@
 HPDrainRate: 4
-CircleSize: 4.2000003
+CircleSize: 4.2
+OverallDifficulty: 9
+ApproachRate: 9
+SliderMultiplier: 1.3
+SliderTickRate: 2

@@ -1,2 +1,4 @@
-DistanceSpacing: 0.8
+DistanceSpacing: 1.6
 BeatDivisor: 4
+GridSize: 16
+TimelineZoom: 1.2839998006820679

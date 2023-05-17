@@ -1,2 +1,8 @@
-Title: Heroine
-TitleUnicode: ヒロイン
+Title: Memories of Kindness
+TitleUnicode: 優しさの記�
+Artist: Mitsukiyo feat. Kano
+ArtistUnicode: Mitsukiyo ft. 鹿�
+Creator: Sololiquy
+Version: where all miracle begin
+Source: ブルーアーカイ� -Blue Archive-
+BeatmapSetID: 1954433
